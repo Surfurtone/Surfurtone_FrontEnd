@@ -6,8 +6,8 @@ import gamgyul from '../assets/imgs/gamgyul.png'
 import camera from '../assets/imgs/camera.png'
 import adIcon from '../assets/imgs/adicon.png'
 import editIcon from '../assets/imgs/editIcon.png'
-import myPageIcon from '../assets/Page2/myPageIcon.png'
-import norification from '../assets/Page2/notification.png'
+import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
+import norification from '../assets/imgs/Page2/notification.png'
 
 const Page2 = () => {
   const tagObj = ['생기발랄', 'IT', '팀원구함', '소심함']

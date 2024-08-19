@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import myPageIcon from '../assets/Page2/myPageIcon.png'
-import norification from '../assets/Page2/notification.png'
+import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
+import norification from '../assets/imgs/Page2/notification.png'
 import CardFlip from '../components/CardFlip'
-import hostLove from '../assets/Page2/hostLove.png'
+import hostLove from '../assets/imgs/Page2/hostLove.png'
 
 const Page2 = () => {
   // 현재 선택된 카테고리를 추적하는 state

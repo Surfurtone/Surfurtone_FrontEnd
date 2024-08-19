@@ -3,10 +3,10 @@
 import axios from 'axios'
 import React, { useState, useEffect, useRef } from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'
-import backIcon from '../assets/chatPage/backIcon.png'
-import myPageIcon from '../assets/Page2/myPageIcon.png'
-import norification from '../assets/Page2/notification.png'
-import SendIcon from '../assets/chatPage/SendIcon.png'
+import backIcon from '../assets/imgs/chatPage/backIcon.png'
+import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
+import norification from '../assets/imgs/Page2/notification.png'
+import SendIcon from '../assets/imgs/chatPage/SendIcon.png'
 import { Link } from 'react-router-dom'
 
 const FinalScreen = () => {
@@ -142,29 +142,24 @@ const FinalScreen = () => {
               <div ref={messagesEndRef} />
             </div>
           </div>
+        </div>
+        {/* 채팅 입력창 */}
+        <div className="flex items-center px-2 py-2 rounded-full border-2 border-white">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder="호스트에게 궁금한 점을 물어보세요."
+            className="bg-transparent flex-grow text-white placeholder-white outline-none px-2"
+          />
 
-          {/* 채팅 입력창 */}
-          <div className="flex items-center px-2 py-2 rounded-full border-2 border-white">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyPress={handleKeyPress}
-              placeholder="호스트에게 궁금한 점을 물어보세요."
-              className="bg-transparent flex-grow text-white placeholder-white outline-none px-2"
-            />
-
-            <button
-              onClick={handleSend}
-              className="text-white p-1 rounded-full mr-1 h-[24px] w-[24px]"
-            >
-              <img
-                src={SendIcon}
-                alt="SendIcon"
-                className="w-[15px] h-[17px]"
-              />
-            </button>
-          </div>
+          <button
+            onClick={handleSend}
+            className="text-white p-1 rounded-full mr-1 h-[24px] w-[24px]"
+          >
+            <img src={SendIcon} alt="SendIcon" className="w-[15px] h-[17px]" />
+          </button>
         </div>
       </div>
     </div>
