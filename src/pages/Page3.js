@@ -55,7 +55,7 @@ const Page2 = () => {
           </div>
         </div>
 
-        <div className="flex flex-col px-5  py-[20px]">
+        <div className="flex flex-col px-5  py-[10px]">
           {/*캐릭터 사진*/}
           <div className="flex flex-col items-center">
             <div className="relative w-fit rounded-3xl flex justify-center items-center z-10">
@@ -101,14 +101,14 @@ const Page2 = () => {
             <div className="text-2xl text-white font-extrabold pt-3 pb-7">
               감귤이
             </div>
-            <div className="rounded-2xl bg-white px-8 py-1 mb-7 text-xs font-bold">
+            <div className="rounded-2xl bg-white px-8 py-1 mb-3 text-xs font-bold">
               내정보
             </div>
           </div>
 
           {/*정보창*/}
           <div className="bg-white rounded-3xl p-6">
-            <div className="text-2xl font-bold text-black mb-6">기본정보</div>
+            <div className="text-2xl font-bold text-black mb-2">기본정보</div>
 
             {/* 기본 정보 섹션 */}
             <div className="grid grid-cols-2 gap-y-1 gap-x-6 text-sm">
