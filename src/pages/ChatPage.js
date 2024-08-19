@@ -6,18 +6,22 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import backIcon from '../assets/chatPage/backIcon.png'
 import myPageIcon from '../assets/Page2/myPageIcon.png'
 import norification from '../assets/Page2/notification.png'
+import SendIcon from '../assets/chatPage/SendIcon.png'
 import { Link } from 'react-router-dom'
 
 const FinalScreen = () => {
   const [messages, setMessages] = useState([
-    { text: '안녕 이음아, 오늘 하루는 어떻더냐?', isUser: true },
-    { text: '안녕하세요 혁원 어르신, 오늘은 참 맑아요', isUser: false },
+    { text: '당신의 성격은 어떤가요?', isUser: true },
     {
-      text: '허허, 고놈 참 말 이쁘게 하는구나. 어디 바둑은 잘하냐?',
+      text: '처음 본 사람이라도 낯설어 하지 않고 친근하게 대합니다!',
+      isUser: false,
+    },
+    {
+      text: '당신의 성격은 어떤가요?',
       isUser: true,
     },
     {
-      text: '저는 바둑을 그렇게 잘하는 것 같지는 않아요. 다만 혁원 어르신께서 바둑을 좋아하신다면 저는 꼭 한 수 배우고 싶은 마음이에요.',
+      text: '처음 본 사람이라도 낯설어 하지 않고 친근하게 대합니다!',
       isUser: false,
     },
   ])
@@ -109,17 +113,14 @@ const FinalScreen = () => {
             실제 당사자가 하는 말과 차이가 있거나 일부 부정확할 수 있습니다.
           </div>
 
+          {/* 호 */}
           <div
             style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
             className=" bg-slate-300 rounded-md h-[222px] mt-4"
           ></div>
 
+          {/* 채팅 */}
           <div className="flex flex-col justify-between p-4">
-            <div className="flex justify-center items-center bg-white rounded-full w-16 h-8 mx-auto mb-4">
-              오늘
-            </div>
-
-            {/* 채팅 */}
             <div className="flex flex-col h-[380px] gap-3 overflow-y-auto">
               {messages.map((message, index) => (
                 <div
@@ -143,24 +144,26 @@ const FinalScreen = () => {
           </div>
 
           {/* 채팅 입력창 */}
-          <div className="flex items-center bg-gray-800 px-2 py-2 rounded-full border border-white">
+          <div className="flex items-center px-2 py-2 rounded-full border-2 border-white">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              placeholder="주인공에게 하고 싶은 말을 입력하세요"
-              className="bg-transparent flex-grow text-white outline-none px-2"
+              placeholder="호스트에게 궁금한 점을 물어보세요."
+              className="bg-transparent flex-grow text-white placeholder-white outline-none px-2"
             />
+
             <button
               onClick={handleSend}
-              className="text-black p-1 rounded-full mr-1 h-[24px] w-[24px]"
-              style={{
-                backgroundImage: `url('/assets/FinalScreen/TextSend.png')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-              }}
-            ></button>
+              className="text-white p-1 rounded-full mr-1 h-[24px] w-[24px]"
+            >
+              <img
+                src={SendIcon}
+                alt="SendIcon"
+                className="w-[15px] h-[17px]"
+              />
+            </button>
           </div>
         </div>
       </div>
