@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Page1 = () => {
   return (
-    <div className="flex min-h-screen h-screen justify-center">
+    <div className="flex min-h-screen h-screen justify-center bg-[#F4F4F4]">
       <div className="w-full max-w-[400px] overflow-hidden bg-[#F4F4F4] font-pretendard px-6  flex flex-col justify-between">
         <div className="py-12 flex flex-col gap-4 justify-between bg-[#F4F4F4] flex-grow overflow-hidden">
           <div className="flex flex-col items-center mb-16 text-[#4F64D1]">

@@ -17,7 +17,6 @@ import ChatPage from './pages/ChatPage'
 function App() {
   return (
     <div className="App">
-      <Sidebar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sidebar" element={<Sidebar />} />

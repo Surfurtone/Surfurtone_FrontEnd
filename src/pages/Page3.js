@@ -9,6 +9,7 @@ import editIcon from '../assets/imgs/editIcon.png'
 import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
 import { useSelector } from 'react-redux'
+import backIcon from '../assets/imgs/chatPage/backIcon.png'
 
 const Page2 = () => {
   const navigate = useNavigate()
@@ -23,11 +24,18 @@ const Page2 = () => {
   // useEffect(() => {}, [userCountReducer])
 
   return (
-    <div className="flex min-h-screen justify-center">
+    <div className="flex min-h-screen justify-center bg-[#4F64D1] ">
       <div className="w-full max-w-[400px] overflow-x-hidden bg-[#4F64D1] h-screen flex flex-col">
         {/* 헤더 */}
         {/* 헤더 */}
         <div className="flex justify-between items-center mb-[8px] text-white relative px-[22px] pt-[50px]">
+          <Link to="/page2">
+            <img
+              src={backIcon}
+              alt="backIcon"
+              className="w-[15px] h-[17px]"
+            ></img>
+          </Link>
           <div className="font-Pretendard font-bold text-[25px] absolute left-1/2 transform -translate-x-1/2">
             TWO FACE
           </div>
