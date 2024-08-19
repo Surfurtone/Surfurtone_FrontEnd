@@ -1,51 +1,52 @@
 // 로그인 페이지 page1
 
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Page1 = () => {
   return (
-    <div className="flex min-h-screen justify-center">
-      <div className="w-full max-w-[400px] overflow-x-hidden bg-gray-300">
-        <div className="px-[24px] py-[40px] flex flex-col gap-4 justify-between bg-slate-400">
-          <div className="flex justify-center mb-[8px] bg-blue-500 text-white">
-            <div className="text-2xl">로그인 페이지</div>
+    <div className="flex min-h-screen h-screen justify-center">
+      <div className="w-full max-w-[400px] overflow-hidden bg-[#F4F4F4] font-pretendard px-6  flex flex-col justify-between">
+        <div className="py-12 flex flex-col gap-4 justify-between bg-[#F4F4F4] flex-grow overflow-hidden">
+          <div className="flex flex-col items-center mb-16 text-[#4F64D1]">
+            <div className="font-extrabold text-3xl">TWO</div>
+            <div className="font-extrabold text-5xl">FACE</div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative rounded-[28px] h-36 overflow-hidden bg-yellow-300">
-              <div className="absolute left-[20px] top-[16px] z-10 text-xl">
-                로그인 페이지
-              </div>
-              <div className="absolute right-[20px] bottom-[16px] z-10 text-3xl font-bold">
-                29C
-              </div>
+          <div className="flex flex-col mb-10 text-3xl font-semibold">
+            <div>
+              <span className="text-[#4F64D1] font-bold">투페이스</span>에
             </div>
-            <div className="relative rounded-[28px] h-36 overflow-hidden bg-white">
-              <div className="absolute left-[20px] top-[16px] z-10 text-xl">
-                Main Content
-              </div>
-              <div className="absolute right-[20px] bottom-[16px] z-10 text-3xl font-bold">
-                This
-              </div>
-            </div>
-            <div className="box-border rounded-[28px] bg-white relative h-[142px] overflow-hidden col-span-2 flex flex-col cursor-pointer p-[16px_20px]">
-              <div className="text-xl font-bold">Test Tets</div>
-              <div className="text-sm">test</div>
-            </div>
-            <div className="box-border rounded-[28px] bg-white relative h-[142px] overflow-hidden col-span-2 flex flex-col cursor-pointer p-[16px_20px]">
-              <div className="text-xl font-bold">Test Tets</div>
-              <div className="text-sm">test</div>
-            </div>
+            <div>오신 것을 환영합니다!</div>
           </div>
 
-          <div className="aliv justify-center bg-blue-500 text-white"></div>
-
-          <Link
-            to="/page2"
-            className="text-center my-[36px] mt-[36px] mb-[44px] text-[16px] font-normal bg-blue-500 text-white"
-          >
-            Page2로 이동
+          <div className="flex flex-col gap-7 flex-grow justify-center">
+            <div className="text-lg font-semibold">
+              회원님의 학교와 학번을 입력해주세요.
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="font-semibold text-[#4F64D1]">
+                <span className="pr-1">학교</span>
+              </div>
+              <input
+                type="text"
+                placeholder="학교를 선택해주세요"
+                className="relative border-b border-[#AEAEAE] bg-[#F4F4F4] py-2 px-2"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+              <div className="font-semibold text-[#4F64D1]">학번</div>
+              <input
+                type="text"
+                placeholder="학번을 입력해주세요"
+                className="border-b border-[#AEAEAE] bg-[#F4F4F4] py-2 px-2"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-center bg-[#4F64D1] text-white rounded-[20px] cursor-pointer mt-auto mb-28">
+          <Link to="/page2" className="py-3.5 text-xl font-medium text-white">
+            계속하기
           </Link>
         </div>
       </div>
