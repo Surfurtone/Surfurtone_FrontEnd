@@ -1,3 +1,5 @@
+// 로그인 페이지 page1
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -7,13 +9,13 @@ const Page1 = () => {
       <div className="w-full max-w-[400px] overflow-x-hidden bg-gray-300">
         <div className="px-[24px] py-[40px] flex flex-col gap-4 justify-between bg-slate-400">
           <div className="flex justify-center mb-[8px] bg-blue-500 text-white">
-            <div className="text-2xl">Page1</div>
+            <div className="text-2xl">로그인 페이지</div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="relative rounded-[28px] h-36 overflow-hidden bg-yellow-300">
               <div className="absolute left-[20px] top-[16px] z-10 text-xl">
-                Page1
+                로그인 페이지
               </div>
               <div className="absolute right-[20px] bottom-[16px] z-10 text-3xl font-bold">
                 29C

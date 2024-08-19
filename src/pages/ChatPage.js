@@ -1,3 +1,5 @@
+// 채팅 페이지
+
 import axios from 'axios'
 import React, { useState, useEffect, useRef } from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'

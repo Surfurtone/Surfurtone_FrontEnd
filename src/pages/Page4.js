@@ -1,21 +1,21 @@
-// 마이페이지 page3
+// 궁합 페이지 page4
 
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Page2 = () => {
+const Page4 = () => {
   return (
     <div className="flex min-h-screen justify-center">
       <div className="w-full max-w-[400px] overflow-x-hidden bg-gray-300">
         <div className="px-[24px] py-[40px] flex flex-col gap-4 justify-between bg-slate-400">
           <div className="flex justify-center mb-[8px] bg-pink-500 text-white">
-            <div className="text-2xl">마이페이지</div>
+            <div className="text-2xl">궁합페이지</div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div className="relative rounded-[28px] h-36 overflow-hidden bg-yellow-300">
               <div className="absolute left-[20px] top-[16px] z-10 text-xl">
-                마이페이지
+                궁합페이지
               </div>
               <div className="absolute right-[20px] bottom-[16px] z-10 text-3xl font-bold">
                 29C
@@ -42,10 +42,10 @@ const Page2 = () => {
           <div className="aliv justify-center bg-blue-500 text-white"></div>
 
           <Link
-            to="/page4"
+            to="/"
             className="text-center my-[36px] mt-[36px] mb-[44px] text-[16px] font-normal bg-blue-500 text-white"
           >
-            page4 이동 버튼
+            서비스 소개화면 이동 버튼
           </Link>
         </div>
       </div>
@@ -53,4 +53,4 @@ const Page2 = () => {
   )
 }
 
-export default Page2
+export default Page4
