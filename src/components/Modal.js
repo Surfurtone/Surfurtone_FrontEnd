@@ -1,27 +1,34 @@
-import React from 'react'
-
 const Modal = ({ closeModal }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50">
-      {/* 모달 배경 */}
-      <div
-        className="absolute inset-0 bg-black opacity-50"
-        onClick={closeModal} // 배경 클릭 시 모달 닫기
-      ></div>
-
-      {/* 모달 콘텐츠 */}
-      <div className="relative bg-white p-8 rounded-lg shadow-lg z-10">
-        <h2 className="text-lg font-bold mb-4">궁합 결과</h2>
-        <p>이곳에 궁합 결과 내용을 넣을 수 있습니다.</p>
-        <button
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-          onClick={closeModal}
-        >
-          닫기
-        </button>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-6 rounded-md shadow-md w-11/12 max-w-[360px] flex flex-col items-center text-center">
+        <h2 className="text-xl font-semibold">호스트와 함께하시겠습니까?</h2>
+        <p className="text-gray-400 mt-2">
+          *주의*
+        </p>
+        <p className="text-gray-400 mt-2">
+          호스트에게 당신과 연락 가능한
+        </p>
+        <p className="text-gray-400 mt-2">
+          기본적인 정보가 제공됩니다!
+        </p>
+        <div className="mt-4 flex justify-center gap-2 w-full">
+          <button
+            className="bg-gray-300 px-4 py-2 rounded-md"
+            onClick={closeModal}
+          >
+            안할래요
+          </button>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            onClick={closeModal} // Replace with actual functionality
+          >
+            함께할래요
+          </button>
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;
