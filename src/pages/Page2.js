@@ -80,7 +80,11 @@ const Page2 = () => {
   }
 
   const navigateChat = () => {
-    navigate('/page4')
+    if (post?.category === '광고') {
+      navigate('/page4')
+    } else {
+      navigate('/chatPage')
+    }
   }
 
   useEffect(() => {
