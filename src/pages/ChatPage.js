@@ -109,7 +109,7 @@ const FinalScreen = () => {
   }
 
   return (
-    <div className="relative flex min-h-screen justify-center">
+    <div className="relative flex min-h-screen justify-center bg-[#4F64D1]">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <LoadingSpinner />
