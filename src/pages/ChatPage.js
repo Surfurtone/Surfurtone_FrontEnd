@@ -8,6 +8,7 @@ import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
 import SendIcon from '../assets/imgs/chatPage/SendIcon.png'
 import { Link } from 'react-router-dom'
+import labong from '../assets/imgs/gamgyul.png'
 
 const FinalScreen = () => {
   const [messages, setMessages] = useState([
@@ -76,7 +77,7 @@ const FinalScreen = () => {
   return (
     <div className="flex min-h-screen justify-center">
       {isLoading && <LoadingSpinner />}
-      <div className="relative w-full max-w-[400px] overflow-x-hidden bg-slate-200">
+      <div className="relative w-full max-w-[400px] overflow-x-hidden bg-[#4F64D1]">
         <div className="px-[22px] py-[50px] flex flex-col justify-between bg-[#4F64D1]">
           {/* 헤더 */}
           <div className="flex justify-between items-center mb-[8px] text-white relative">
@@ -108,16 +109,34 @@ const FinalScreen = () => {
             </div>
           </div>
 
-          <div className="bg-[#4F64D1] mt-6 text-white text-[12px] text-center">
+          <div className="bg-[#4F64D1] mt-6 text-white text-[15px] text-center">
             클론봇이 답변하는 내용은 AI 기술을 통해 생성되었습니다. <br />
-            실제 당사자가 하는 말과 차이가 있거나 일부 부정확할 수 있습니다.
+            실제 당사자가 하는 말과 차이가 있거나 <br /> 일부 부정확할 수
+            있습니다.
           </div>
 
-          {/* 호 */}
+          {/* 호스트 정보 */}
           <div
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
-            className=" bg-slate-300 rounded-md h-[222px] mt-4"
-          ></div>
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
+            className="bg-slate-300 rounded-md mt-4 flex p-4"
+          >
+            <div className="items-center flex-shrink-0">
+              <div className="rounded-full bg-white w-[60px] h-[60px] flex justify-center items-center">
+                <img src={labong} alt="labong" className="w-[40px] h-[45px]" />
+              </div>
+            </div>
+            <div className="items-center p-4 font-Pretendard flex-grow">
+              <div className="font-bold text-[20px]">감귤이</div>
+              <div className="text-[16px] mt-2">
+                학과: 제주대학교 인공지능학과
+                <br /> 학번: 20191111
+                <br /> 학년: 4학년
+                <br /> 성별: 여성 <br />
+                전화번호: 010-****-****
+                <br /> MBTI: INFP
+              </div>
+            </div>
+          </div>
 
           {/* 채팅 */}
           <div className="flex flex-col justify-between p-4">
@@ -142,24 +161,30 @@ const FinalScreen = () => {
               <div ref={messagesEndRef} />
             </div>
           </div>
-        </div>
-        {/* 채팅 입력창 */}
-        <div className="flex items-center px-2 py-2 rounded-full border-2 border-white">
-          <input
-            type="text"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyPress={handleKeyPress}
-            placeholder="호스트에게 궁금한 점을 물어보세요."
-            className="bg-transparent flex-grow text-white placeholder-white outline-none px-2"
-          />
+          {/* 채팅 입력창 */}
+          <div className="px-[4px] w-full">
+            <div className="flex items-center px-2 py-2 rounded-full border-4 border-white bg">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={handleKeyPress}
+                placeholder="호스트에게 궁금한 점을 물어보세요."
+                className="bg-transparent flex-grow text-white placeholder-white outline-none px-2"
+              />
 
-          <button
-            onClick={handleSend}
-            className="text-white p-1 rounded-full mr-1 h-[24px] w-[24px]"
-          >
-            <img src={SendIcon} alt="SendIcon" className="w-[15px] h-[17px]" />
-          </button>
+              <button
+                onClick={handleSend}
+                className="text-black p-1 rounded-full mr-1 h-[24px] w-[24px]"
+              >
+                <img
+                  src={SendIcon}
+                  alt="SendIcon"
+                  className="w-[15px] h-[17px]"
+                />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
