@@ -20,12 +20,9 @@ const Page4 = () => {
     <div className="flex min-h-screen justify-center">
       <div className="w-full max-w-[400px] backdrop-blur-md text-white bg-black bg-opacity-50">
         {/* X 버튼 */}
-        <div className="mt-5 my-1 mx-8 flex justify-end ">
+        <div className="mt-5 my-1 mx-8 flex justify-end items-center">
           <div className="rounded-full bg-white">
-            <button
-              className="top-[-6px] right-6 text-2xl font-bold text-white"
-              onClick={closeModal}
-            >
+            <button onClick={closeModal}>
               <img
                 src={cancleIcon}
                 alt="cancleIcon"
@@ -48,7 +45,7 @@ const Page4 = () => {
         </div>
         <div className="px-6">
           {/* 성격궁합 등 4개의 평가 */}
-          <div className="space-y-4 mt-4 max-h-[400px] overflow-y-scroll">
+          <div className="space-y-4 mt-4 max-h-[410px] overflow-y-scroll">
             {['성격궁합', '가치관 일치', '협력 가능성', '의사소통'].map(
               (title, index) => (
                 <div key={index} className="bg-[#465290] p-4 rounded-[15px]">
@@ -61,7 +58,8 @@ const Page4 = () => {
                     </div>
                     <div className="text-lg font-bold">SCORE : 75 / 100</div>
                   </div>
-                  <p className="text-sm leading-relaxed border-t-2 border-[#334188]">
+                  <p className="mt-2 text-sm leading-relaxed border-t-2 border-[#334188]">
+                    <br />
                     라붕이의 적극적이고 리더십 있는 성격과 감귤이의 차분하고
                     내성적인 성격은 대조적이지만, 본연적으로 작용할 수 있습니다.
                     서로의 부족한 부분을 메워줄 수 있는 관계로, 성격적 궁합이
