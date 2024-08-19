@@ -52,7 +52,7 @@ const FinalScreen = () => {
         text: (
           <div className="flex justify-center">
             <Link to="/page3">
-              <button className="bg-blue-500 text-white rounded-full">
+              <button className=" text-white rounded-full">
                 마이페이지로 가기
               </button>
             </Link>

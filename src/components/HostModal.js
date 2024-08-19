@@ -1,6 +1,7 @@
 import React from 'react'
 import Tarot from '../assets/imgs/Tarot.svg'
 import cancleIcon from '../assets/imgs/Page4/cancleIcon.png'
+import LoadingSpinner from './LoadingSpinner'
 
 const HostModal = ({ closeModal }) => {
   const compatibilityObj = [
