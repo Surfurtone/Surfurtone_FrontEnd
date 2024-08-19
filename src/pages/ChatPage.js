@@ -140,7 +140,7 @@ const FinalScreen = () => {
 
           {/* 채팅 */}
           <div className="flex flex-col justify-between p-4">
-            <div className="flex flex-col h-[380px] gap-3 overflow-y-auto">
+            <div className="flex flex-col h-[345px] gap-3 overflow-y-auto">
               {messages.map((message, index) => (
                 <div
                   key={index}
