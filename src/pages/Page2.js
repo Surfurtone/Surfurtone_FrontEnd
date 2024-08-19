@@ -14,11 +14,18 @@ const Page2 = () => {
             <div className="font-Pretendard font-bold text-[25px]">
               TWO FACE
             </div>
-            <img
-              src={myPageIcon}
-              alt="myPageIcon"
-              className="w-[24px] h-[24px]"
-            />
+            <div className="grid grid-cols-2 justify-center items-center">
+              <img
+                src={myPageIcon}
+                alt="myPageIcon"
+                className="w-[24px] h-[24px]"
+              />
+              <img
+                src={norification}
+                alt="norification"
+                className="w-[24px] h-[28px]"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-2 gap-4">
