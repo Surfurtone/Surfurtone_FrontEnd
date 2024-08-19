@@ -4,10 +4,24 @@ import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
 import CardFlip from '../components/CardFlip'
 import Chat from '../assets/imgs/Page2/Chat.svg'
+import Modal from '../components/Modal'
 
 const Page2 = () => {
   // 현재 선택된 카테고리를 추적하는 state
   const [selectedCategory, setSelectedCategory] = useState('ALL')
+
+  // 모달 상태 관리
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // 모달 열기 함수
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
+
+  // 모달 닫기 함수
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
   // 카테고리 버튼들을 배열로 정의
   const categories = ['ALL', '대회활동', '기숙사', '동아리']
@@ -93,12 +107,12 @@ const Page2 = () => {
 
           {/* 버튼 */}
           <div className="flex gap-4 flex-3 mb-[12px] justify-start items-center font-Pretendard font-medium text-[18px] text-black mt-[36px]">
-            <Link
+            <button
               className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white"
-              to="/page4"
+              onClick={openModal} // 버튼 클릭 시 모달 열기
             >
               호스트와 궁합보기🔮
-            </Link>
+            </button>
 
             <button className="flex-1 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-[#FCC729]">
               다음 추천
@@ -121,6 +135,8 @@ const Page2 = () => {
           </Link>
         </div>
       </div>
+      {/* 모달이 열려 있을 때만 Modal 컴포넌트를 렌더링 */}
+      {isModalOpen && <Modal closeModal={closeModal} />}
     </div>
   )
 }
