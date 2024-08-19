@@ -16,7 +16,7 @@ const HostModal = ({ closeModal }) => {
       title: '가치관 일치',
       score: 60,
       description:
-        '라붕봉이는 외향적이고 도전적이며, 리더 역할을 선호합니다. 반면, 감귤이는 내성적이고 신중하며 깊이 있는 사고를 추구합니다. 이들의 가치관은 다소 차이가 있지만, 목표에 대해 진지한 태도를 공유하고 있어 일치하는 부분이 존재합니다.',
+        '라봉이는 외향적이고 도전적이며, 리더 역할을 선호합니다. 반면, 감귤이는 내성적이고 신중하며 깊이 있는 사고를 추구합니다. 이들의 가치관은 다소 차이가 있지만, 목표에 대해 진지한 태도를 공유하고 있어 일치하는 부분이 존재합니다.',
     },
     {
       title: '협력 가능성',
@@ -60,7 +60,7 @@ const HostModal = ({ closeModal }) => {
 
         {/* 카드 이미지와 텍스트 영역 */}
         <div className="px-6">
-          <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center h-[355px]">
+          <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center h-[305px]">
             <img
               src={Tarot}
               alt="Tarot"
