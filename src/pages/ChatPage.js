@@ -9,6 +9,8 @@ import norification from '../assets/imgs/Page2/notification.png'
 import SendIcon from '../assets/imgs/chatPage/SendIcon.png'
 import { Link } from 'react-router-dom'
 import labong from '../assets/imgs/gamgyul.png'
+import Modal from '../components/Modal'
+import Hands from '../assets/imgs/chatPage/Hands.png'
 
 const FinalScreen = () => {
   const [messages, setMessages] = useState([
@@ -65,6 +67,19 @@ const FinalScreen = () => {
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  // 모달 상태 관리
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  // 모달 열기 함수
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
+
+  // 모달 닫기 함수
+  const closeModal = () => {
+    setIsModalOpen(false)
+  }
 
   return (
     <div className="flex min-h-screen justify-center">
@@ -154,6 +169,18 @@ const FinalScreen = () => {
             </div>
           </div>
 
+          {/*'호스트와 함께하기' 부분 */}
+          <div className='flex self-end mb-3'>
+          <div className="relative self-end flex justify-center h-[65px] p-2.5 bg-[#DAD4FF] rounded-full cursor-pointer group">
+            <img src={Hands} alt="Hands" className="relative z-20" />
+            <div className="absolute left-[-9rem] top-1/4 bg-[#DAD4FF] px-5 py-1 rounded-l-full font-medium transform translate-x-10 opacity-0 transition-all duration-500 ease-in-out group-hover:translate-x-0 group-hover:opacity-100 z-10"
+            onClick={openModal} // 버튼 클릭 시 모달 열기
+            >
+              호스트와 함께하기
+            </div>
+          </div>
+          </div>
+
           {/* 채팅 입력창 */}
           <div className="px-[4px] w-full">
             <div className="flex items-center px-2 py-2 rounded-full border-4 border-white bg">
@@ -180,6 +207,8 @@ const FinalScreen = () => {
           </div>
         </div>
       </div>
+      {/* 모달이 열려 있을 때만 Modal 컴포넌트를 렌더링 */}
+      {isModalOpen && <Modal closeModal={closeModal} />}
     </div>
   )
 }
