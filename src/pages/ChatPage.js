@@ -12,17 +12,8 @@ import labong from '../assets/imgs/gamgyul.png'
 
 const FinalScreen = () => {
   const [messages, setMessages] = useState([
-    { text: '당신의 성격은 어떤가요?', isUser: true },
     {
-      text: '처음 본 사람이라도 낯설어 하지 않고 친근하게 대합니다!',
-      isUser: false,
-    },
-    {
-      text: '당신의 성격은 어떤가요?',
-      isUser: true,
-    },
-    {
-      text: '처음 본 사람이라도 낯설어 하지 않고 친근하게 대합니다!',
+      text: '저에 대해 알고 싶으신가요? 무엇이든 물어보세요!',
       isUser: false,
     },
   ])
@@ -46,10 +37,11 @@ const FinalScreen = () => {
     setMessages([...messages, userMessage])
 
     try {
+      //라봉
       // API에 POST 요청을 보내서 서버로 메시지를 전송
       setIsLoading(true)
       const response = await axios.post(
-        `${baseUrl}/api/webtoon/conversation/suho/`,
+        `${baseUrl}/api/surfurtone/labung/chatbot/`,
         {
           message: `${input}`,
         },
@@ -161,6 +153,7 @@ const FinalScreen = () => {
               <div ref={messagesEndRef} />
             </div>
           </div>
+
           {/* 채팅 입력창 */}
           <div className="px-[4px] w-full">
             <div className="flex items-center px-2 py-2 rounded-full border-4 border-white bg">
