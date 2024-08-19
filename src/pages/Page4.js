@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import Tarot from '../assets/imgs/Tarot.svg'
+import cancleIcon from '../assets/imgs/Page4/cancleIcon.png'
 
 const Page4 = () => {
   // 각 항목에 맞는 이모티콘 설정
@@ -17,17 +18,25 @@ const Page4 = () => {
 
   return (
     <div className="flex min-h-screen justify-center">
-      <div className="w-full max-w-[400px] backdrop-blur-md text-white bg-black bg-opacity-50 relative">
+      <div className="w-full max-w-[400px] backdrop-blur-md text-white bg-black bg-opacity-50">
         {/* X 버튼 */}
-        <button
-          className="absolute top-[-6px] right-6 text-2xl font-bold text-white"
-          onClick={closeModal}
-        >
-          ✕
-        </button>
+        <div className="mt-5 my-1 mx-8 flex justify-end ">
+          <div className="rounded-full bg-white">
+            <button
+              className="top-[-6px] right-6 text-2xl font-bold text-white"
+              onClick={closeModal}
+            >
+              <img
+                src={cancleIcon}
+                alt="cancleIcon"
+                className="w-[30px] h-[30px]"
+              />
+            </button>
+          </div>
+        </div>
 
         {/* 카드 이미지와 텍스트 영역 */}
-        <div className="px-6 py-6">
+        <div className="px-6">
           <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center">
             <img
               src={Tarot}
@@ -36,7 +45,8 @@ const Page4 = () => {
               style={{ maxWidth: '100%', maxHeight: '100%' }}
             />
           </div>
-
+        </div>
+        <div className="px-6">
           {/* 성격궁합 등 4개의 평가 */}
           <div className="space-y-4 mt-4 max-h-[400px] overflow-y-scroll">
             {['성격궁합', '가치관 일치', '협력 가능성', '의사소통'].map(
@@ -64,7 +74,7 @@ const Page4 = () => {
         </div>
 
         {/* 하단 '종합점수' 부분 */}
-        <div className="px-6 py-2 bg-[#2B2F3A] rounded-t-[28px] text-center absolute bottom-0 w-full">
+        <div className="px-6 py-4 bg-[#2B2F3A] rounded-t-[28px] text-center absolute bottom-0 w-full">
           <div className="text-[18px] font-bold flex justify-center items-center">
             <span role="img" aria-label="icon" className="mr-2">
               👍

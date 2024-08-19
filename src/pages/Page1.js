@@ -20,7 +20,7 @@ const Page1 = () => {
             <div>오신 것을 환영합니다!</div>
           </div>
 
-          <div className="flex flex-col gap-7 flex-grow justify-center">
+          <div className="flex flex-col gap-7 px-5 flex-grow justify-center">
             <div className="text-lg font-semibold">
               회원님의 학교와 학번을 입력해주세요.
             </div>

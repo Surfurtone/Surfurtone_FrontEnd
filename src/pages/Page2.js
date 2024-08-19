@@ -1,3 +1,4 @@
+// 메인페이지
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
