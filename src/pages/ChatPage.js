@@ -1,5 +1,3 @@
-// 채팅 페이지
-
 import axios from 'axios'
 import React, { useState, useEffect, useRef } from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'
@@ -21,6 +19,7 @@ const FinalScreen = () => {
   const [input, setInput] = useState('')
   const messagesEndRef = useRef(null)
   const [isLoading, setIsLoading] = useState(false)
+  const [inputCount, setInputCount] = useState(0)
 
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
@@ -35,30 +34,43 @@ const FinalScreen = () => {
     // 사용자가 입력한 메시지를 먼저 화면에 추가
     const userMessage = { text: input, isUser: true }
     setMessages([...messages, userMessage])
+    setInputCount((prev) => prev + 1)
 
-    try {
-      //라봉
-      // API에 POST 요청을 보내서 서버로 메시지를 전송
-      setIsLoading(true)
-      const response = await axios.post(
-        `${baseUrl}/api/surfurtone/labung/chatbot/`,
-        {
-          message: `${input}`,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        },
-      )
+    if (inputCount + 1 === 4) {
+      const limitMessage = {
+        text: '무료 질문 횟수가 끝났습니다. 정보를 더 얻고 싶다면?\n호스트와 함께하기',
+        isUser: false,
+      }
+      setMessages((prevMessages) => [...prevMessages, limitMessage])
       setInput('')
-      const responseText = response.data.response
-      const serverMessage = { text: responseText, isUser: false }
-      setMessages((prevMessages) => [...prevMessages, serverMessage])
-      setIsLoading(false)
-    } catch (error) {
-      console.error('Error fetching answer from the server:', error)
-      setIsLoading(false)
+      return
+    }
+
+    if (inputCount + 1 !== 4) {
+      try {
+        //라봉
+        // API에 POST 요청을 보내서 서버로 메시지를 전송
+        setIsLoading(true)
+        const response = await axios.post(
+          `${baseUrl}/api/surfurtone/labung/chatbot/`,
+          {
+            message: input,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          },
+        )
+        setInput('')
+        const responseText = response.data.response
+        const serverMessage = { text: responseText, isUser: false }
+        setMessages((prevMessages) => [...prevMessages, serverMessage])
+        setIsLoading(false)
+      } catch (error) {
+        console.error('Error fetching answer from the server:', error)
+        setIsLoading(false)
+      }
     }
   }
 
@@ -150,6 +162,11 @@ const FinalScreen = () => {
                   <div className="text-sm font-semibold">{message.text}</div>
                 </div>
               ))}
+              {inputCount >= 4 && (
+                <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-full">
+                  호스트와 함께하기
+                </button>
+              )}
               <div ref={messagesEndRef} />
             </div>
           </div>
