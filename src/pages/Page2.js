@@ -5,6 +5,7 @@ import norification from '../assets/imgs/Page2/notification.png'
 import CardFlip from '../components/CardFlip'
 import Chat from '../assets/imgs/Page2/Chat.svg'
 import HostModal from '../components/HostModal'
+import compatibility from '../assets/imgs/Page2/compatibility.png'
 
 const Page2 = () => {
   // 현재 선택된 카테고리를 추적하는 state
@@ -25,16 +26,6 @@ const Page2 = () => {
 
   // 카테고리 버튼들을 배열로 정의
   const categories = ['ALL', '대회활동', '기숙사', '동아리']
-
-  // 태그들을 배열로 정의
-  const tags = [
-    '#공모전',
-    '#구함',
-    '#팀원구함',
-    '#노동부',
-    '#포스터',
-    '#어린이공모전',
-  ]
 
   return (
     <div className="flex min-h-screen justify-center">
@@ -93,46 +84,26 @@ const Page2 = () => {
           {/* 카드 콘텐츠 */}
           <CardFlip />
 
-          {/* 태그 */}
-          <div className="flex flex-wrap mb-[12px] font-Pretendard justify-start gap-2 font-medium text-[13px] text-black mt-[13px]">
-            {tags.map((tag, index) => (
-              <div
-                key={index}
-                className="flex items-center justify-center px-[8px] py-[4px] box-border rounded-[10px] bg-[#DAD4FF]"
-              >
-                {tag}
-              </div>
-            ))}
-          </div>
-
           {/* 버튼 */}
-          <div className="flex gap-4 flex-3 mb-[12px] justify-start items-center font-Pretendard font-medium text-[18px] text-black mt-[36px]">
-            <button
+          <div className="flex gap-4 flex-3 justify-start items-center font-Pretendard font-medium text-[18px] text-black my-7">
+            <Link
               className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white"
-              onClick={openModal} // 버튼 클릭 시 모달 열기
+              to="/page4"
             >
-              호스트와 궁합보기🔮
-            </button>
+              호스트 AI와 대화하기
+            </Link>
 
             <button className="flex-1 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-[#FCC729]">
               다음 추천
             </button>
           </div>
-        </div>
 
-        {/* 하단 '호스트AI와 대화하기' 부분 */}
-        <div className="absolute bottom-[-0.5rem] left-1/2 transform -translate-x-1/2">
-          <Link
-            to="/chatPage"
-            className="flex px-[1rem] py-[0.3rem] bg-white rounded-[5rem] shadow-xl font-bold"
-          >
-            호스트AI와 대화하기
-            <img
-              src={Chat}
-              alt="Chat"
-              className="w-[5rem] h-[5rem] bg-white absolute top-[-1.5rem] right-[-4rem] aspect-square border-white rounded-[50%] flex items-center justify-center"
-            />
-          </Link>
+          <div className="relative self-end flex justify-center h-[65px] p-3 bg-[#DAD4FF] rounded-full cursor-pointer group">
+            <img src={compatibility} alt="" className="relative z-20" />
+            <div className="absolute left-[-9rem] top-1/4 bg-[#DAD4FF] px-5 py-1 rounded-l-full font-medium transform translate-x-10 opacity-0 transition-all duration-500 ease-in-out group-hover:translate-x-0 group-hover:opacity-100 z-10">
+              호스트와 궁합보기
+            </div>
+          </div>
         </div>
       </div>
       {/* 모달이 열려 있을 때만 Modal 컴포넌트를 렌더링 */}
