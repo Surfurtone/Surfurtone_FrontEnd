@@ -2,14 +2,23 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
+import myPageIcon from '../assets/Page2/myPageIcon.png'
+import norification from '../assets/Page2/notification.png'
 
 const Page2 = () => {
   return (
     <div className="flex min-h-screen justify-center">
       <div className="w-full max-w-[400px] overflow-x-hidden bg-gray-300">
-        <div className="px-[24px] py-[40px] flex flex-col gap-4 justify-between bg-slate-400">
-          <div className="flex justify-center mb-[8px] bg-purple-500 text-white">
-            <div className="text-2xl">메인페이지</div>
+        <div className="px-[24px] py-[50px] flex flex-col gap-4 justify-between bg-[#4F64D1]">
+          <div className="flex justify-center mb-[8px] bg-purple-500 text-white items-center">
+            <div className="font-Pretendard font-bold text-[25px]">
+              TWO FACE
+            </div>
+            <img
+              src={myPageIcon}
+              alt="myPageIcon"
+              className="w-[24px] h-[24px]"
+            />
           </div>
 
           <div className="grid grid-cols-2 gap-4">
