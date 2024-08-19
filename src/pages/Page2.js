@@ -95,7 +95,7 @@ const Page2 = () => {
           <div className="flex gap-4 flex-3 mb-[12px] justify-start items-center font-Pretendard font-medium text-[18px] text-black mt-[36px]">
             <Link
               className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white"
-              to="/chatPage"
+              to="/page4"
             >
               호스트와 궁합보기🔮
             </Link>
@@ -109,7 +109,7 @@ const Page2 = () => {
         {/* 하단 '호스트AI와 대화하기' 부분 */}
         <div className="absolute bottom-[-0.5rem] left-1/2 transform -translate-x-1/2">
           <Link
-            to="/page4"
+            to="/chatPage"
             className="flex px-[1rem] py-[0.3rem] bg-white rounded-[5rem] shadow-xl font-bold"
           >
             호스트AI와 대화하기
