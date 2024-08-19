@@ -3,6 +3,10 @@
 import axios from 'axios'
 import React, { useState, useEffect, useRef } from 'react'
 import LoadingSpinner from '../components/LoadingSpinner'
+import backIcon from '../assets/chatPage/backIcon.png'
+import myPageIcon from '../assets/Page2/myPageIcon.png'
+import norification from '../assets/Page2/notification.png'
+import { Link } from 'react-router-dom'
 
 const FinalScreen = () => {
   const [messages, setMessages] = useState([
@@ -66,44 +70,52 @@ const FinalScreen = () => {
   }, [messages])
 
   return (
-    <div className="bg-gray-300 flex min-h-screen justify-center">
+    <div className="flex min-h-screen justify-center">
       {isLoading && <LoadingSpinner />}
-      <div className="max-w-[400px] w-full overflow-x-hidden bg-slate-100">
-        <div className="px-[14px] py-[20px] flex flex-col gap-4 justify-between bg-black">
-          {/* 헤더 바 */}
-          <div className="flex justify-center text-white relative">
-            <div className="text-[25px] font-bold">성진우</div>
-            <div className="absolute left-[10px] z-10 text-xl">
-              <button
-                className="w-[25px] h-[25px] bg-white rounded-sm"
-                style={{
-                  backgroundImage: `url('/assets/FinalScreen/backArrow.png')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                }}
-              ></button>
+      <div className="relative w-full max-w-[400px] overflow-x-hidden bg-slate-200">
+        <div className="px-[22px] py-[50px] flex flex-col justify-between bg-[#4F64D1]">
+          {/* 헤더 */}
+          <div className="flex justify-between items-center mb-[8px] text-white relative">
+            <div className="items-center">
+              <Link to="/page2">
+                <img
+                  src={backIcon}
+                  alt="backIcon"
+                  className="w-[15px] h-[17px]"
+                />
+              </Link>
+            </div>
+            <div className="font-Pretendard font-bold text-[25px] absolute left-1/2 transform -translate-x-1/2">
+              TWO FACE
+            </div>
+            <div className="grid grid-cols-2 gap-1 items-center ml-auto">
+              <Link to="/page3">
+                <img
+                  src={myPageIcon}
+                  alt="myPageIcon"
+                  className="w-[24px] h-[24px]"
+                />
+              </Link>
+              <img
+                src={norification}
+                alt="norification"
+                className="w-[24px] h-[28px]"
+              />
             </div>
           </div>
 
-          <div className="bg-black text-white text-[12px] text-center">
-            캐릭터챗이 답변하는 내용은 AI 기술을 통해 생성되었습니다. <br />
-            실제 캐릭터가 하는 말과 차이가 있거나 일부 부정확할 수 있습니다.
+          <div className="bg-[#4F64D1] mt-6 text-white text-[12px] text-center">
+            클론봇이 답변하는 내용은 AI 기술을 통해 생성되었습니다. <br />
+            실제 당사자가 하는 말과 차이가 있거나 일부 부정확할 수 있습니다.
           </div>
 
           <div
-            className="rounded-md h-[222px]"
-            style={{
-              backgroundImage: `url('/assets/Chat_Image_1.png')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-          />
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
+            className=" bg-slate-300 rounded-md h-[222px] mt-4"
+          ></div>
 
           <div className="flex flex-col justify-between p-4">
-            <div
-              className="flex justify-center items-center bg-white rounded-full w-16 h-8 mx-auto mb-4"
-              style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }} // 50% 투명도 적용
-            >
+            <div className="flex justify-center items-center bg-white rounded-full w-16 h-8 mx-auto mb-4">
               오늘
             </div>
 
