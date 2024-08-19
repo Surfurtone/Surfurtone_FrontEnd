@@ -21,12 +21,15 @@ const Page4 = () => {
       <div className="w-full max-w-[400px] backdrop-blur-md text-white bg-black bg-opacity-50">
         {/* X 버튼 */}
         <div className="mt-5 my-1 mx-8 flex justify-end items-center">
-          <div className="rounded-full bg-white">
-            <button onClick={closeModal}>
+          <div className="flex justify-center items-center w-[30px] h-[30px] rounded-full bg-white">
+            <button
+              onClick={closeModal}
+              className="flex justify-center items-center w-full h-full"
+            >
               <img
                 src={cancleIcon}
                 alt="cancleIcon"
-                className="w-[30px] h-[30px]"
+                className="w-[25px] h-[25px]"
               />
             </button>
           </div>
