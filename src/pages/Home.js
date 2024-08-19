@@ -4,7 +4,7 @@ import Img01 from '../assets/imgs/Img01.svg';
 import Img02 from '../assets/imgs/Img02.svg';
 import Img03 from '../assets/imgs/Img03.svg';
 
-const HomePage = () => {
+const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     {
@@ -37,11 +37,11 @@ const HomePage = () => {
   return (
     <div className="flex min-h-screen justify-center items-center relative bg-gray-300 font-pretendard font-[200]">
       <Sidebar />
-      <div className="w-full max-w-[400px] flex flex-col justify-between items-center bg-[#4F64D1] h-screen p-8">
+      <div className="w-full max-w-[400px] flex flex-col justify-between items-center bg-[#4F64D1] h-screen">
         {/* 고정된 상단 부분 */}
-        <div className="flex flex-col items-center text-center" style={{ marginTop: '20px' }}>
-          <h2 className="text-[30px] font-bold text-white mb-[-1.2rem]">TWO</h2>
-          <h2 className="text-[40px] font-bold text-white mb-[3rem]">FACE</h2>
+        <div className="flex flex-col items-center text-center">
+          <h2 className="text-[30px] font-bold text-white mt-[6.5rem] mb-[-1.2rem]">TWO</h2>
+          <h2 className="text-[48px] font-bold text-white mb-[4.35rem]">FACE</h2>
           <div className="flex space-x-2 mb-[-3rem]">
             {slides.map((_, bulletIndex) => (
               <div
@@ -66,7 +66,7 @@ const HomePage = () => {
                 transform: `translateX(${(index - currentSlide) * 100}%)`,
               }}
             >
-              <img src={slide.image} alt="Slide Image" className="w-full max-w-[200px] mx-auto my-4" />
+              <img src={slide.image} alt="Slide Image" className="w-full max-w-[197px] mx-auto my-4" />
               <h3 className="text-[25px] font-bold text-white mb-2 whitespace-pre-line text-center">
                 {slide.text}
               </h3>
@@ -84,7 +84,7 @@ const HomePage = () => {
         {/* 고정된 하단 버튼 */}
         <button
           onClick={nextSlide}
-          className="bg-white text-[#4F64D1] font-semibold py-[0.5rem] px-[1rem] mt-4 mb-[3.125rem] rounded-[20px] text-[20px]"
+          className="bg-white text-[#4F64D1] font-semibold py-[0.5rem] px-[1rem] mb-[6.25rem] rounded-[20px] text-[20px]"
           style={{
             width: '100%',
             maxWidth: '350px',
@@ -99,4 +99,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
