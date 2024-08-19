@@ -70,7 +70,7 @@ const FinalScreen = () => {
         // API에 POST 요청을 보내서 서버로 메시지를 전송
         setIsLoading(true)
         const response = await axios.post(
-          `${baseUrl}/api/surfurtone/labung/chatbot/`,
+          `${baseUrl}/api/surfurtone/ad/chatbot/`,
           {
             message: input,
           },
@@ -109,7 +109,7 @@ const FinalScreen = () => {
   }
 
   return (
-    <div className="relative flex min-h-screen justify-center">
+    <div className="relative flex min-h-screen justify-center bg-[#4F64D1]">
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <LoadingSpinner />
@@ -154,33 +154,34 @@ const FinalScreen = () => {
           </div>
 
           {/* 호스트 정보 */}
-          <div className=''>
-          <div
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
-            className="bg-slate-300 rounded-md m-4 flex p-4"
-          >
-            <div className="items-center flex-shrink-0">
-            </div>
-            <div className="items-center p-4 font-Pretendard flex-grow">
+          <div className="">
+            <div
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.7)' }}
+              className="bg-slate-300 rounded-md m-4 flex p-4"
+            >
+              <div className="items-center flex-shrink-0"></div>
+              <div className="items-center p-4 font-Pretendard flex-grow">
                 <img src={Ad} alt="Ad" className="" />
-              <p className="text-[1.1rem] mt-2 text-center font-bold">
-                "코드스테이츠 프로덕트 매니지먼트 부트캠프 13기 수강생을 모집합니다!"
-              </p>
-              <p className='text-center mt-1 font-bold border-t border-black'>
-              &lt;모집 일정&gt;
-              </p>
-              <p className='text-center mt-2'>
-                2022.06.14(화) 18시까지
-              </p>
-              <p className='text-center mt-2 font-bold'>
-              &lt;교육 기간&gt;
-              </p>
-              <p className='text-center mt-2'>
-              2022.06.27 ~ 2022.09.28<br />평일 9시~18시<br />(13주 풀타임 과정)
-              <br />···
-              </p>
+                <p className="text-[1.1rem] mt-2 text-center font-bold">
+                  "코드스테이츠 프로덕트 매니지먼트 부트캠프 13기 수강생을
+                  모집합니다!"
+                </p>
+                <p className="text-center mt-1 font-bold border-t border-black">
+                  &lt;모집 일정&gt;
+                </p>
+                <p className="text-center mt-2">2022.06.14(화) 18시까지</p>
+                <p className="text-center mt-2 font-bold">&lt;교육 기간&gt;</p>
+                <p className="text-center mt-2">
+                  2022.06.27 ~ 2022.09.28
+                  <br />
+                  평일 9시~18시
+                  <br />
+                  (13주 풀타임 과정)
+                  <br />
+                  ···
+                </p>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* 채팅 */}

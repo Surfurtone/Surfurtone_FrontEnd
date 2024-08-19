@@ -39,7 +39,7 @@ const Home = () => {
   }
 
   return (
-    <div className="flex min-h-screen justify-center items-center relative font-pretendard font-[400]">
+    <div className="bg-[#4F64D1] flex min-h-screen justify-center items-center relative font-pretendard font-[400]">
       <Sidebar />
       <div className="w-full max-w-[400px] flex flex-col justify-between items-center bg-[#4F64D1] h-screen">
         {/* 고정된 상단 부분 */}

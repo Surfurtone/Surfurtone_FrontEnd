@@ -105,7 +105,7 @@ const Page2 = () => {
   }
 
   return (
-    <div className="flex min-h-screen justify-center">
+    <div className="flex min-h-screen justify-center bg-[#4F64D1]">
       <div className="relative w-full max-w-[400px] overflow-x-hidden bg-[#4F64D1]">
         <div className="px-[22px] py-[50px] flex flex-col justify-between bg-[#4F64D1]">
           <div className="flex justify-between items-center mb-[8px] text-white relative">
