@@ -1,10 +1,9 @@
-// 메인페이지
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
 import CardFlip from '../components/CardFlip'
-import hostLove from '../assets/imgs/Page2/hostLove.png'
+import Chat from '../assets/imgs/Page2/Chat.svg'
 
 const Page2 = () => {
   // 현재 선택된 카테고리를 추적하는 state
@@ -48,58 +47,77 @@ const Page2 = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-0">
-            {/* 카테고리 */}
-            <div className="flex mt-[20px] mb-[12px] justify-start gap-0 font-Pretendard text-[14px] text-white">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={`flex items-center justify-center px-[8px] py-[4px] ${
-                    selectedCategory === category
-                      ? 'font-extrabold underline'
-                      : 'font-medium'
-                  }`}
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
+          {/* 검색 입력창 */}
+          <div className="flex justify-center mt-[20px] mb-[12px] relative ">
+            <button className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+              🔍
+            </button>
+            <input
+              type="text"
+              placeholder="찾으시는 활동이 있으신가요?"
+              className="w-full pl-[3rem] pr-[12px] py-[8px] text-[13px] rounded-[10px] bg-white text-black"
+            />
+          </div>
 
-            {/* 카드 콘텐츠 */}
-            <CardFlip />
-
-            {/* 태그 */}
-            <div className="flex flex-wrap mb-[12px] font-Pretendard justify-start gap-2 font-medium text-[13px] text-black mt-[13px]">
-              {tags.map((tag, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-center px-[8px] py-[4px] box-border rounded-[10px] bg-[#DAD4FF]"
-                >
-                  {tag}
-                </div>
-              ))}
-            </div>
-
-            {/* 버튼 */}
-            <div className="flex gap-4 flex-3 mb-[12px] justify-start items-center font-Pretendard font-medium text-[18px] text-black mt-[36px]">
-              <Link
-                className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white"
-                to="/chatPage"
+          {/* 카테고리 */}
+          <div className="flex justify-start gap-0 font-Pretendard text-[14px] text-white">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`flex items-center justify-center px-[8px] py-[4px] ${
+                  selectedCategory === category
+                    ? 'font-extrabold underline'
+                    : 'font-medium'
+                }`}
+                onClick={() => setSelectedCategory(category)}
               >
-                호스트 AI와 대화하기📱
-              </Link>
-
-              <button className="flex-1 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-[#FCC729]">
-                다음 추천
+                {category}
               </button>
-            </div>
+            ))}
+          </div>
+
+          {/* 카드 콘텐츠 */}
+          <CardFlip />
+
+          {/* 태그 */}
+          <div className="flex flex-wrap mb-[12px] font-Pretendard justify-start gap-2 font-medium text-[13px] text-black mt-[13px]">
+            {tags.map((tag, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-center px-[8px] py-[4px] box-border rounded-[10px] bg-[#DAD4FF]"
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+
+          {/* 버튼 */}
+          <div className="flex gap-4 flex-3 mb-[12px] justify-start items-center font-Pretendard font-medium text-[18px] text-black mt-[36px]">
+            <Link
+              className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white"
+              to="/chatPage"
+            >
+              호스트와 궁합보기🔮
+            </Link>
+
+            <button className="flex-1 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-[#FCC729]">
+              다음 추천
+            </button>
           </div>
         </div>
-        {/* 하단 absolute */}
-        <div className="absolute bottom-[27px] right-[27px]">
-          <Link to="/page4">
-            <img src={hostLove} alt="hostLove" className="w-[197px] h-[70px]" />
+
+        {/* 하단 '호스트AI와 대화하기' 부분 */}
+        <div className="absolute bottom-[-0.5rem] left-1/2 transform -translate-x-1/2">
+          <Link
+            to="/page4"
+            className="flex px-[1rem] py-[0.3rem] bg-white rounded-[5rem] shadow-xl font-bold"
+          >
+            호스트AI와 대화하기
+            <img
+              src={Chat}
+              alt="Chat"
+              className="w-[5rem] h-[5rem] bg-white absolute top-[-1.5rem] right-[-4rem] aspect-square border-white rounded-[50%] flex items-center justify-center"
+            />
           </Link>
         </div>
       </div>
