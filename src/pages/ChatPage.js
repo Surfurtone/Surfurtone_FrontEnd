@@ -6,9 +6,9 @@ import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
 import SendIcon from '../assets/imgs/chatPage/SendIcon.png'
 import { Link } from 'react-router-dom'
-import labong from '../assets/imgs/gamgyul.png'
 import Modal from '../components/Modal'
 import Hands from '../assets/imgs/chatPage/Hands.png'
+import labong from '../assets/imgs/chatPage/labong.png'
 
 const FinalScreen = () => {
   const [messages, setMessages] = useState([
@@ -37,14 +37,30 @@ const FinalScreen = () => {
     const userMessage = { text: input, isUser: true }
     setMessages([...messages, userMessage])
     setInputCount((prev) => prev + 1)
+    setInput('') // 입력창 초기화
 
     if (inputCount + 1 === 4) {
       const limitMessage = {
-        text: '무료 질문 횟수가 끝났습니다. 정보를 더 얻고 싶다면?\n호스트와 함께하기',
+        text: '무료 질문 횟수가 끝났습니다. 더 대화를 이어가시려면 광고를 시청해주세요.',
         isUser: false,
       }
       setMessages((prevMessages) => [...prevMessages, limitMessage])
       setInput('')
+
+      // 마이페이지로 가는 버튼 추가
+      const myPageButton = {
+        text: (
+          <div className="flex justify-center">
+            <Link to="/page3">
+              <button className="bg-blue-500 text-white rounded-full">
+                마이페이지로 가기
+              </button>
+            </Link>
+          </div>
+        ),
+        isUser: false,
+      }
+      setMessages((prevMessages) => [...prevMessages, myPageButton])
       return
     }
 
@@ -64,7 +80,6 @@ const FinalScreen = () => {
             },
           },
         )
-        setInput('')
         const responseText = response.data.response
         const serverMessage = { text: responseText, isUser: false }
         setMessages((prevMessages) => [...prevMessages, serverMessage])
@@ -94,8 +109,12 @@ const FinalScreen = () => {
   }
 
   return (
-    <div className="flex min-h-screen justify-center">
-      {isLoading && <LoadingSpinner />}
+    <div className="relative flex min-h-screen justify-center">
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <LoadingSpinner />
+        </div>
+      )}
       <div className="relative w-full max-w-[400px] overflow-x-hidden bg-[#4F64D1]">
         <div className="px-[22px] py-[50px] flex flex-col justify-between bg-[#4F64D1]">
           {/* 헤더 */}
@@ -145,21 +164,21 @@ const FinalScreen = () => {
               </div>
             </div>
             <div className="items-center p-4 font-Pretendard flex-grow">
-              <div className="font-bold text-[20px]">감귤이</div>
+              <div className="font-bold text-[20px]">라봉이</div>
               <div className="text-[16px] mt-2">
-                학과: 제주대학교 인공지능학과
-                <br /> 학번: 20191111
-                <br /> 학년: 4학년
-                <br /> 성별: 여성 <br />
+                학과: 제주대학교 컴퓨터공학과
+                <br /> 학번: 20201234
+                <br /> 학년: 3학년
+                <br /> 성별: 남성 <br />
                 전화번호: 010-****-****
-                <br /> MBTI: INFP
+                <br /> MBTI: ENTJ
               </div>
             </div>
           </div>
 
           {/* 채팅 */}
           <div className="flex flex-col justify-between p-4">
-            <div className="flex flex-col h-[345px] gap-3 overflow-y-auto">
+            <div className="flex flex-col h-[250px] gap-3 overflow-y-auto">
               {messages.map((message, index) => (
                 <div
                   key={index}
@@ -177,25 +196,20 @@ const FinalScreen = () => {
                   <div className="text-sm font-semibold">{message.text}</div>
                 </div>
               ))}
-              {inputCount >= 4 && (
-                <button className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-full">
-                  호스트와 함께하기
-                </button>
-              )}
+
               <div ref={messagesEndRef} />
             </div>
-          </div>
-
-          {/*'호스트와 함께하기' 부분 */}
-          <div className='flex self-end mb-3'>
-          <div className="relative self-end flex justify-center h-[65px] p-2.5 bg-[#DAD4FF] rounded-full cursor-pointer group">
-            <img src={Hands} alt="Hands" className="relative z-20" />
-            <div className="absolute left-[-9rem] top-1/4 bg-[#DAD4FF] px-5 py-1 rounded-l-full font-medium transform translate-x-10 opacity-0 transition-all duration-500 ease-in-out group-hover:translate-x-0 group-hover:opacity-100 z-10"
-            onClick={openModal} // 버튼 클릭 시 모달 열기
-            >
-              호스트와 함께하기
+            <div className="flex self-end mb-3">
+              <div className="relative self-end flex justify-center h-[65px] p-2.5 bg-[#DAD4FF] rounded-full cursor-pointer group">
+                <img src={Hands} alt="Hands" className="relative z-20" />
+                <div
+                  className="absolute left-[-9rem] top-1/4 bg-[#DAD4FF] px-5 py-1 rounded-l-full font-medium transform translate-x-10 opacity-0 transition-all duration-500 ease-in-out group-hover:translate-x-0 group-hover:opacity-100 z-10"
+                  onClick={openModal} // 버튼 클릭 시 모달 열기
+                >
+                  호스트와 함께하기
+                </div>
+              </div>
             </div>
-          </div>
           </div>
 
           {/* 채팅 입력창 */}
