@@ -1,27 +1,21 @@
-// 궁합페이지
-
-import React, { useState } from 'react'
+import React from 'react'
 import Tarot from '../assets/imgs/Tarot.svg'
 import cancleIcon from '../assets/imgs/Page4/cancleIcon.png'
 
-const Page4 = () => {
-  // 각 항목에 맞는 이모티콘 설정
-  const icons = ['👆', '✌️', '🤟', '🖖']
-
-  // 모달 상태 관리
-  const [isOpen, setIsOpen] = useState(true)
-
-  // 모달 닫기 함수
-  const closeModal = () => {
-    setIsOpen(false)
-  }
-
+const HostModal = ({ closeModal }) => {
   return (
-    <div className="flex min-h-screen justify-center">
-      <div className="w-full max-w-[400px] backdrop-blur-md text-white bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50">
+      {/* 모달 배경 */}
+      <div
+        className="absolute inset-0 bg-black opacity-50"
+        onClick={closeModal} // 배경 클릭 시 모달 닫기
+      ></div>
+
+      {/* 모달 콘텐츠 */}
+      <div className="relative w-full h-full max-w-[400px] backdrop-blur-md text-white bg-black bg-opacity-50 rounded-lg shadow-lg z-10">
         {/* X 버튼 */}
         <div className="mt-5 my-1 mx-8 flex justify-end items-center">
-          <div className="flex justify-center items-center w-[30px] h-[30px] rounded-full bg-white">
+          <div className="flex justify-center items-center w-[30px] h-[30px] rounded-full bg-slate-500">
             <button
               onClick={closeModal}
               className="flex justify-center items-center w-full h-full"
@@ -37,7 +31,7 @@ const Page4 = () => {
 
         {/* 카드 이미지와 텍스트 영역 */}
         <div className="px-6">
-          <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center">
+          <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center h-[355px]">
             <img
               src={Tarot}
               alt="Tarot"
@@ -48,7 +42,7 @@ const Page4 = () => {
         </div>
         <div className="px-6">
           {/* 성격궁합 등 4개의 평가 */}
-          <div className="space-y-4 mt-4 max-h-[410px] overflow-y-scroll">
+          <div className="space-y-4 mt-4 max-h-[calc(100vh-450px)] overflow-y-scroll">
             {['성격궁합', '가치관 일치', '협력 가능성', '의사소통'].map(
               (title, index) => (
                 <div key={index} className="bg-[#465290] p-4 rounded-[15px]">
@@ -88,4 +82,4 @@ const Page4 = () => {
   )
 }
 
-export default Page4
+export default HostModal

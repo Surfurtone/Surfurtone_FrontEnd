@@ -4,7 +4,7 @@ import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
 import CardFlip from '../components/CardFlip'
 import Chat from '../assets/imgs/Page2/Chat.svg'
-import Modal from '../components/Modal'
+import HostModal from '../components/HostModal'
 
 const Page2 = () => {
   // 현재 선택된 카테고리를 추적하는 state
@@ -136,7 +136,7 @@ const Page2 = () => {
         </div>
       </div>
       {/* 모달이 열려 있을 때만 Modal 컴포넌트를 렌더링 */}
-      {isModalOpen && <Modal closeModal={closeModal} />}
+      {isModalOpen && <HostModal closeModal={closeModal} />}
     </div>
   )
 }
