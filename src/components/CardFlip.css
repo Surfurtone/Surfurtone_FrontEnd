@@ -16,7 +16,8 @@
   align-items: center;
   font-size: 24px;
   color: white;
-  transition: transform 0.8s ease;
+  transition: transform 0.8s ease, visibility 0.8s ease; /* 추가된 visibility 속성 */
+  overflow: hidden; /* overflow 속성 추가 */
 }
 
 .card-front {
@@ -28,7 +29,7 @@
 }
 
 .card-back {
-  background-color: #f44336;
+  background-color: #fff;
   transform: rotateY(180deg); /* 뒷면을 회전시켜서 보이지 않게 설정 */
 }
 
@@ -40,10 +41,17 @@
   transform: rotateY(360deg); /* 뒷면을 다시 앞쪽으로 회전시킴 */
 }
 
+.card-content-front {
+  position: relative;
+  /*padding: 16px;*/
+  /*text-align: center;*/
+}
+
 .card-content {
   position: relative;
-  padding: 16px;
-  text-align: center;
+  height: 430px;
+  /*padding: 16px;*/
+  /*text-align: center;*/
 }
 
 .d-day {
@@ -56,4 +64,23 @@
   border-radius: 12px; /* 모서리를 둥글게 */
   font-size: 14px; /* 폰트 크기 설정 */
   font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 적용 */
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.ad {
+  position: absolute;
+  top: 10px; /* 카드의 위쪽에 위치 */
+  left: 10px; /* 카드의 왼쪽에 위치 */
+  background-color: #FF0000; /* 배경색 설정 */
+  color: white;
+  padding: 5px 10px; /* 텍스트 주위에 여백 설정 */
+  border-radius: 12px; /* 모서리를 둥글게 */
+  font-size: 14px; /* 폰트 크기 설정 */
+  font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 적용 */
+
 }
