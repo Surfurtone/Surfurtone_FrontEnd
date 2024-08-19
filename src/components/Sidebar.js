@@ -22,7 +22,7 @@ const Sidebar = () => {
           마이페이지
         </Link>
         <Link to="/page4" className="bg-yellow-200">
-          궁합페이지
+          광고 페이지
         </Link>
         <Link to="/chatPage" className="bg-yellow-200">
           채팅 페이지
