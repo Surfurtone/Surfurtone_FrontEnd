@@ -10,16 +10,19 @@ const Page2 = () => {
     <div className="flex min-h-screen justify-center">
       <div className="w-full max-w-[400px] overflow-x-hidden bg-gray-300">
         <div className="px-[24px] py-[50px] flex flex-col gap-4 justify-between bg-[#4F64D1]">
-          <div className="flex justify-center mb-[8px] bg-purple-500 text-white items-center">
-            <div className="font-Pretendard font-bold text-[25px]">
+          {/* 헤더 */}
+          <div className="flex justify-between items-center mb-[8px] text-white relative">
+            <div className="font-Pretendard font-bold text-[25px] absolute left-1/2 transform -translate-x-1/2">
               TWO FACE
             </div>
-            <div className="grid grid-cols-2 justify-center items-center">
-              <img
-                src={myPageIcon}
-                alt="myPageIcon"
-                className="w-[24px] h-[24px]"
-              />
+            <div className="grid grid-cols-2 gap-1 items-center ml-auto">
+              <Link to="/page3">
+                <img
+                  src={myPageIcon}
+                  alt="myPageIcon"
+                  className="w-[24px] h-[24px]"
+                />
+              </Link>
               <img
                 src={norification}
                 alt="norification"
@@ -28,14 +31,10 @@ const Page2 = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative rounded-[28px] h-36 overflow-hidden bg-yellow-300">
-              <div className="absolute left-[20px] top-[16px] z-10 text-xl">
-                메인페이지
-              </div>
-              <div className="absolute right-[20px] bottom-[16px] z-10 text-3xl font-bold">
-                29C
-              </div>
+          <div className="grid grid-cols-1 gap-4">
+            {/* 카테고리 */}
+            <div className="relative bg-yellow-300 font-Pretendard">
+              <div className="">ALL</div>
             </div>
             <div className="relative rounded-[28px] h-36 overflow-hidden bg-white">
               <div className="absolute left-[20px] top-[16px] z-10 text-xl">
