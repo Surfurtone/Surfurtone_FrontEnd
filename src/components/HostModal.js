@@ -31,7 +31,7 @@ const HostModal = ({ closeModal }) => {
 
         {/* 카드 이미지와 텍스트 영역 */}
         <div className="px-6">
-          <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center h-[355px]">
+          <div className="relative rounded-[28px] overflow-hidden bg-[#1B1F2E] flex justify-center items-center h-[300px]">
             <img
               src={Tarot}
               alt="Tarot"

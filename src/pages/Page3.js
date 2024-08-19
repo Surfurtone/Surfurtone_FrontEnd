@@ -1,5 +1,6 @@
 // 마이페이지 page3
 
+import backIcon from '../assets/imgs/chatPage/backIcon.png'
 import React, { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import gamgyul from '../assets/imgs/gamgyul.png'
@@ -26,8 +27,17 @@ const Page2 = () => {
     <div className="flex min-h-screen justify-center">
       <div className="w-full max-w-[400px] overflow-x-hidden bg-[#4F64D1] h-screen flex flex-col">
         {/* 헤더 */}
-        {/* 헤더 */}
+
         <div className="flex justify-between items-center mb-[8px] text-white relative px-[22px] pt-[50px]">
+          <div className="items-center">
+            <Link to="/page2">
+              <img
+                src={backIcon}
+                alt="backIcon"
+                className="w-[15px] h-[17px]"
+              />
+            </Link>
+          </div>
           <div className="font-Pretendard font-bold text-[25px] absolute left-1/2 transform -translate-x-1/2">
             TWO FACE
           </div>
@@ -47,7 +57,7 @@ const Page2 = () => {
           </div>
         </div>
 
-        <div className="flex flex-col px-5  py-[20px]">
+        <div className="flex flex-col px-5 py-[20px]">
           {/*캐릭터 사진*/}
           <div className="flex flex-col items-center">
             <div className="relative w-fit rounded-3xl flex justify-center items-center z-10">
@@ -90,10 +100,10 @@ const Page2 = () => {
               </div>
             </div>
 
-            <div className="text-2xl text-white font-extrabold pt-3 pb-7">
+            <div className="text-2xl text-white font-extrabold pt-3 pb-1">
               감귤이
             </div>
-            <div className="rounded-2xl bg-white px-8 py-1 mb-7 text-xs font-bold">
+            <div className="rounded-2xl bg-white px-8 py-1 mb-5 text-xs font-bold">
               내정보
             </div>
           </div>

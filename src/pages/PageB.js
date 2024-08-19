@@ -11,19 +11,21 @@ const PageB = () => {
 
   useEffect(() => {
     axios
-      .post(`${baseUrl}/api/webtoon/male/`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'ngrok-skip-browser-warning': '69420',
-          Accept: 'application/json',
+      .post(
+        `${baseUrl}/api/surfurtone/compatibility/`,
+        {
+          user1: '1',
+          user2: '2',
         },
-      })
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+        },
+      )
       .then((response) => {
-        console.log(response)
-        setCharacters(response.data) // 전체 캐릭터 리스트
-        if (response.data.length > 0) {
-          setCharacter(response.data[0].character) // 첫 번째 캐릭터 객체
-        }
+        console.log(response.data)
       })
       .catch((error) => {
         console.error('Error fetching data:', error.message)

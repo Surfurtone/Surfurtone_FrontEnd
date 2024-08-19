@@ -31,6 +31,9 @@ const Sidebar = () => {
         <Link to="/cardFlip" className="bg-blue-200">
           카드 컴포넌트
         </Link>
+        <Link to="/pageB" className="bg-blue-200">
+          pageB
+        </Link>
       </div>
     </div>
   )
