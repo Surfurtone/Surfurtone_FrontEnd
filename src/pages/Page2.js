@@ -49,7 +49,7 @@ const Page2 = () => {
 
           <div className="flex flex-col gap-0">
             {/* 카테고리 */}
-            <div className="flex mb-[12px] justify-start gap-0 font-Pretendard text-[14px] text-white">
+            <div className="flex mt-[20px] mb-[12px] justify-start gap-0 font-Pretendard text-[14px] text-white">
               {categories.map((category) => (
                 <button
                   key={category}
@@ -82,9 +82,13 @@ const Page2 = () => {
 
             {/* 버튼 */}
             <div className="flex gap-4 flex-3 mb-[12px] justify-start items-center font-Pretendard font-medium text-[18px] text-black mt-[36px]">
-              <button className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white">
+              <Link
+                className="flex-2 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-white"
+                to="/chatPage"
+              >
                 호스트 AI와 대화하기📱
-              </button>
+              </Link>
+
               <button className="flex-1 h-[57px] flex items-center justify-center px-4 box-border rounded-[20px] bg-[#FCC729]">
                 다음 추천
               </button>
@@ -93,7 +97,7 @@ const Page2 = () => {
         </div>
         {/* 하단 absolute */}
         <div className="absolute bottom-[27px] right-[27px]">
-          <Link to="/page3">
+          <Link to="/page4">
             <img src={hostLove} alt="hostLove" className="w-[197px] h-[70px]" />
           </Link>
         </div>

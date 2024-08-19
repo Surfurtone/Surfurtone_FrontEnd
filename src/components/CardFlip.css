@@ -1,15 +1,8 @@
-.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #e2e8f0;
-}
-
 .card {
   width: 100%;
   height: 507px;
   perspective: 1000px; /* 3D 효과를 위한 원근감 설정 */
+  position: relative; /* D-day 위치 설정을 위해 relative 추가 */
 }
 
 .card-face {
@@ -30,6 +23,10 @@
   background-color: #007acc;
 }
 
+.card-front .host-message {
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
 .card-back {
   background-color: #f44336;
   transform: rotateY(180deg); /* 뒷면을 회전시켜서 보이지 않게 설정 */
@@ -47,4 +44,16 @@
   position: relative;
   padding: 16px;
   text-align: center;
+}
+
+.d-day {
+  position: absolute;
+  top: 10px; /* 카드의 위쪽에 위치 */
+  left: 10px; /* 카드의 왼쪽에 위치 */
+  background-color: #f57c00; /* 배경색 설정 */
+  color: white;
+  padding: 5px 10px; /* 텍스트 주위에 여백 설정 */
+  border-radius: 12px; /* 모서리를 둥글게 */
+  font-size: 14px; /* 폰트 크기 설정 */
+  font-family: 'Pretendard', sans-serif; /* Pretendard 폰트 적용 */
 }
