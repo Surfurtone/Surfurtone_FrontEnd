@@ -1,16 +1,26 @@
 // 마이페이지 page3
 
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import gamgyul from '../assets/imgs/gamgyul.png'
 import camera from '../assets/imgs/camera.png'
 import adIcon from '../assets/imgs/adicon.png'
 import editIcon from '../assets/imgs/editIcon.png'
 import myPageIcon from '../assets/imgs/Page2/myPageIcon.png'
 import norification from '../assets/imgs/Page2/notification.png'
+import { useSelector } from 'react-redux'
 
 const Page2 = () => {
+  const navigate = useNavigate()
+  const userCountReducer = useSelector((state) => state.userCountSlice)
+
+  const navigateAd = (option) => {
+    navigate('/pageA', { state: option })
+  }
+
   const tagObj = ['생기발랄', 'IT', '팀원구함', '소심함']
+
+  // useEffect(() => {}, [userCountReducer])
 
   return (
     <div className="flex min-h-screen justify-center">
@@ -48,20 +58,34 @@ const Page2 = () => {
                   className="w-full h-full object-contain p-2"
                 />
 
-                <div className="absolute bottom-0 right-[-0.75rem] w-[31px] h-[31px] flex justify-center items-center rounded-full bg-white border-black border-2 z-30 cursor-pointer">
+                <div className="absolute bottom-0 right-[-0.75rem] w-[31px] h-[31px] flex justify-center items-center rounded-full border-2 border-black bg-white z-30 cursor-pointer">
                   <img src={camera} alt="" />
                 </div>
               </div>
 
-              <div className="absolute left-[-6.2rem] flex flex-col justify-center items-center rounded-full border-2 border-black bg-white p-4 z-0 cursor-pointer">
-                <div className="text-xs font-semibold">남은 감귤 횟수</div>
-                <div className="text-xl font-bold text-[#4F64D1]">7회</div>
+              <div
+                className="absolute left-[-6.2rem] flex flex-col justify-center items-center rounded-full border-2 border-black bg-white p-4 z-0 cursor-pointer"
+                onClick={() => {
+                  navigateAd('compatibility')
+                }}
+              >
+                <div className="text-xs font-semibold pt-2">남은 궁합 횟수</div>
+                <div className="text-xl font-bold text-[#4F64D1]">
+                  {userCountReducer.compatibilityCount}회
+                </div>
                 <img src={adIcon} alt="" />
               </div>
 
-              <div className="absolute right-[-6.2rem] flex flex-col justify-center items-center rounded-full border-2 border-black bg-white p-4 z-0 cursor-pointer">
-                <div className="text-xs font-semibold">남은 대화 횟수</div>
-                <div className="text-xl font-bold text-[#4F64D1]">3회</div>
+              <div
+                className="absolute right-[-6.2rem] flex flex-col justify-center items-center rounded-full border-2 border-black bg-white p-4 z-0 cursor-pointer"
+                onClick={() => {
+                  navigateAd('chat')
+                }}
+              >
+                <div className="text-xs font-semibold pt-2">남은 대화 횟수</div>
+                <div className="text-xl font-bold text-[#4F64D1]">
+                  {userCountReducer.chatCount}회
+                </div>
                 <img src={adIcon} alt="" />
               </div>
             </div>
@@ -69,13 +93,13 @@ const Page2 = () => {
             <div className="text-2xl text-white font-extrabold pt-3 pb-7">
               감귤이
             </div>
-            <div className="rounded-2xl bg-white border-2 border-black px-8 py-1 mb-7 text-xs font-bold">
+            <div className="rounded-2xl bg-white px-8 py-1 mb-7 text-xs font-bold">
               내정보
             </div>
           </div>
 
           {/*정보창*/}
-          <div className="bg-white border-2 border-black rounded-3xl p-6">
+          <div className="bg-white rounded-3xl p-6">
             <div className="text-2xl font-bold text-black mb-6">기본정보</div>
 
             {/* 기본 정보 섹션 */}

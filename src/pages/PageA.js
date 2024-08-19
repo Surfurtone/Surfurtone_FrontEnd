@@ -1,117 +1,114 @@
-import React, { useState, useEffect } from 'react'
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-import axios from 'axios'
-import LoadingSpinner from '../components/LoadingSpinner' // 로딩 스피너 컴포넌트 임포트
+import React, { useState, useEffect, useRef } from 'react'
+import { useDispatch } from 'react-redux'
+import ReactPlayer from 'react-player'
+import { setChatCount, setCompatibilityCount } from '../store/userCountSlice'
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar'
+import { useLocation, useNavigate } from 'react-router-dom'
+import 'react-circular-progressbar/dist/styles.css'
 
 const PageA = () => {
-  const baseUrl = process.env.REACT_APP_API_URL
-  const [error, setError] = useState(null)
-  const [characters, setCharacters] = useState([]) // 캐릭터 리스트
-  const [character, setCharacter] = useState({}) // 한 명의 캐릭터 정보
-  const [currentIndex, setCurrentIndex] = useState(0) // 현재 캐릭터 인덱스
-  const [loading, setLoading] = useState(true) // 로딩 상태 추가
+  const dispatch = useDispatch()
   const location = useLocation()
+  const option = location.state
+  const adUrl = 'https://youtu.be/2byKVpy6_-o?si=XZatpTTofPB9eOHC'
+  const [adLength, setAdLength] = useState(7)
+  const adMax = 7
+  const [timerStarted, setTimerStarted] = useState(false) // 타이머 시작 여부를 useState로 관리
+  const completed = useRef(false) // complete 함수가 이미 호출되었는지 여부 관리
   const navigate = useNavigate()
-  const gender = location.state?.gender // 전달된 gender 값
+
+  const videoConfig = {
+    youtube: {
+      playerVars: {
+        controls: 0,
+        rel: 0,
+        disablekb: 1,
+        mute: 1,
+        fs: 0,
+      },
+    },
+  }
 
   useEffect(() => {
-    // 0.5초 동안 로딩 화면을 표시한 후 캐릭터 데이터를 불러옴
-    console.log(baseUrl)
-    const timer = setTimeout(() => {
-      setLoading(false)
-      fetchCharacters()
-    }, 500)
+    let intervalId
 
-    return () => clearTimeout(timer) // 컴포넌트가 언마운트될 때 타이머를 정리
-  }, [gender])
-
-  const fetchCharacters = async () => {
-    try {
-      let response
-      if (gender === 'female') {
-        // 여자 캐릭터 정보 불러오기
-        response = await axios.post(
-          `${baseUrl}/api/webtoon/female/`,
-          {},
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'ngrok-skip-browser-warning': '69420',
-              Accept: 'application/json',
-            },
-          },
-        )
-      } else if (gender === 'male') {
-        // 남자 캐릭터 정보 불러오기
-        response = await axios.post(
-          `${baseUrl}/api/webtoon/male/`,
-          {},
-          {
-            headers: {
-              'Content-Type': 'application/json',
-              'ngrok-skip-browser-warning': '69420',
-              Accept: 'application/json',
-            },
-          },
-        )
-      }
-
-      if (response && response.data.length > 0) {
-        setCharacters(response.data) // 캐릭터 리스트 저장
-        setCharacter({
-          name: response.data[0].character.name,
-          age: response.data[0].character.age,
-          tags: response.data[0].character.tags,
+    if (timerStarted && !completed.current) {
+      intervalId = setInterval(() => {
+        setAdLength((prev) => {
+          if (prev <= 1) {
+            clearInterval(intervalId)
+            complete()
+            return 0
+          }
+          return prev - 1
         })
+      }, 1000)
+    }
+
+    return () => clearInterval(intervalId) // 컴포넌트 언마운트 시 타이머 클리어
+  }, [timerStarted])
+
+  const startTimer = () => {
+    if (!timerStarted) {
+      setTimerStarted(true) // 타이머가 이미 시작되지 않았다면 타이머 시작
+    }
+  }
+
+  const complete = () => {
+    if (!completed.current) {
+      // complete 함수가 한 번만 실행되도록
+      completed.current = true
+
+      if (option === 'compatibility') {
+        dispatch(setCompatibilityCount())
+      } else {
+        dispatch(setChatCount())
       }
-    } catch (error) {
-      console.error('Error fetching data:', error.message)
-      console.log(error.message)
-      setError(error.message)
-    }
-  }
 
-  const handleChangeCharacter = () => {
-    if (currentIndex < characters.length - 1) {
-      // 다음 캐릭터로 인덱스를 증가시킴
-      const newIndex = currentIndex + 1
-      setCurrentIndex(newIndex)
-      setCharacter({
-        name: characters[newIndex].character.name,
-        age: characters[newIndex].character.age,
-        tags: characters[newIndex].character.tags,
-      })
-    } else {
-      // 마지막 캐릭터라면 PageB로 이동
-      navigate('/PageB')
+      navigate('/page3')
     }
-  }
-
-  if (loading) {
-    return <LoadingSpinner /> // 로딩 중일 때 로딩 스피너를 표시
   }
 
   return (
-    <div>
-      <div>여기는 PageA</div>
-      <div className="bg-slate-200">
-        <div>컴포넌트 내용이 바뀌는 div 영역</div>
-        {error ? (
-          <div>Error: {error}</div>
-        ) : (
-          <>
-            <div>캐릭터 이름: {character.name}</div>
-            <div>캐릭터 나이: {character.age}</div>
-            <div>캐릭터 태그: {character.tags}</div>
-          </>
-        )}
-        <button className="bg-orange-200" onClick={handleChangeCharacter}>
-          내용 바꾸기
-        </button>
+    <div className="flex min-h-screen justify-center items-center bg-gray-300">
+      <div className="relative w-full max-w-[400px] overflow-hidden flex items-center justify-center h-screen">
+        <div className="relative bg-white w-full h-full z-0 transform scale-[3]">
+          <ReactPlayer
+            url={adUrl}
+            config={videoConfig}
+            onPlay={startTimer}
+            onEnded={complete}
+            muted
+            playing
+            width="100%" // 가로 길이를 100%로 설정
+            height="100%" // 세로 길이를 100%로 설정
+            style={{ objectFit: 'fill' }} // 비율을 무시하고 꽉 차도록 설정
+            className="z-0"
+          />
+        </div>
+        <div className="absolute top-4 right-4 z-10 text-white">
+          <div className="w-[60px] h-[60px]">
+            <CircularProgressbar
+              value={adLength}
+              maxValue={adMax} // 초기 타이머의 최대값으로 설정
+              minValue={0}
+              text={`${adLength}s`}
+              styles={buildStyles({
+                textColor: '#4F64D1', // 텍스트 색상을 파란색으로 설정
+                pathColor: '#4F64D1', // Progressbar의 진행 색상을 파란색으로 설정
+                trailColor: '#d6d6d6', // Progressbar의 배경 색상 설정
+                textSize: '24px', // 글자 크기 설정
+                pathTransitionDuration: 0.5,
+                text: {
+                  dominantBaseline: 'central', // 텍스트를 수직 중앙에 맞춤
+                  textAnchor: 'middle', // 텍스트를 수평 중앙에 맞춤
+                },
+              })}
+              className="z-10"
+            />
+          </div>
+        </div>
       </div>
-      <Link to="/PageB" className="bg-blue-200">
-        PageB로 이동
-      </Link>
     </div>
   )
 }
