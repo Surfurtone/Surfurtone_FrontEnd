@@ -21,7 +21,7 @@ const CardFlip = ({
 
   const handleCardClick = () => {
     setIsFlipped(!isFlipped)
-    console.log(isFlipped)
+    // console.log(isFlipped)
   }
 
   const clickHeart = (e) => {

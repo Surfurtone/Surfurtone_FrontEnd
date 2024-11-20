@@ -19,7 +19,7 @@ const PageB = () => {
         },
       })
       .then((response) => {
-        console.log(response)
+        // console.log(response)
         setCharacters(response.data) // 전체 캐릭터 리스트
         if (response.data.length > 0) {
           setCharacter(response.data[0].character) // 첫 번째 캐릭터 객체

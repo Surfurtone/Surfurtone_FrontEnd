@@ -3,9 +3,10 @@ import Sidebar from '../components/Sidebar'
 import Img01 from '../assets/imgs/Img01.svg'
 import Img02 from '../assets/imgs/Img02.svg'
 import Img03 from '../assets/imgs/Img03.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Home = () => {
+  const navigate = useNavigate()
   const [currentSlide, setCurrentSlide] = useState(0)
   const slides = [
     {
@@ -34,7 +35,8 @@ const Home = () => {
   ]
 
   const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
+    if (currentSlide === 2) navigate('/page2')
+    else setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
   }
 
   return (

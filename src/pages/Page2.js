@@ -26,7 +26,7 @@ const Page2 = () => {
   const isInitialMount = useRef(true)
 
   const fetchList = async () => {
-    console.log('fetchList 호출됨')
+    // console.log('fetchList 호출됨')
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/surfurtone/post/all/random/`,
@@ -51,7 +51,7 @@ const Page2 = () => {
   }
 
   const fetchCategoryList = async () => {
-    console.log('fetchCategoryList 호출됨')
+    // console.log('fetchCategoryList 호출됨')
     try {
       const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/api/surfurtone/post/category/`,
