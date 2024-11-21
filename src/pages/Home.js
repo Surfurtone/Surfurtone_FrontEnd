@@ -35,7 +35,7 @@ const Home = () => {
   ]
 
   const nextSlide = () => {
-    if (currentSlide === 2) navigate('/page2')
+    if (currentSlide === 2) navigate('/page1')
     else setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
   }
 
